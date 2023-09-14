@@ -1,0 +1,6 @@
+framework module Pods_cometext {
+  umbrella header "Pods-cometext-umbrella.h"
+
+  export *
+  module * { export * }
+}
