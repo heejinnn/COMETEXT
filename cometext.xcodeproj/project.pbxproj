@@ -14,7 +14,9 @@
 		4AC931CC2AB308E300AD8929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC931CA2AB308E300AD8929 /* Main.storyboard */; };
 		4AC931CE2AB308E400AD8929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AC931CD2AB308E400AD8929 /* Assets.xcassets */; };
 		4AC931D12AB308E400AD8929 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC931CF2AB308E400AD8929 /* LaunchScreen.storyboard */; };
-		4AC931D92AB30E9F00AD8929 /* LaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC931D82AB30E9F00AD8929 /* LaunchVC.swift */; };
+		4AC931DB2AB3FF3300AD8929 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC931DA2AB3FF3300AD8929 /* MainVC.swift */; };
+		4AC931DD2AB3FF7500AD8929 /* BookStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC931DC2AB3FF7500AD8929 /* BookStoreModel.swift */; };
+		4AC931E42AB4785F00AD8929 /* BookStoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC931E22AB4785F00AD8929 /* BookStoreCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +30,9 @@
 		4AC931CD2AB308E400AD8929 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AC931D02AB308E400AD8929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AC931D22AB308E400AD8929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4AC931D82AB30E9F00AD8929 /* LaunchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchVC.swift; sourceTree = "<group>"; };
+		4AC931DA2AB3FF3300AD8929 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		4AC931DC2AB3FF7500AD8929 /* BookStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStoreModel.swift; sourceTree = "<group>"; };
+		4AC931E22AB4785F00AD8929 /* BookStoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		978294E265E74193534C7065 /* Pods-cometext.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cometext.debug.xcconfig"; path = "Target Support Files/Pods-cometext/Pods-cometext.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,7 +84,9 @@
 				4AC931CD2AB308E400AD8929 /* Assets.xcassets */,
 				4AC931CF2AB308E400AD8929 /* LaunchScreen.storyboard */,
 				4AC931D22AB308E400AD8929 /* Info.plist */,
-				4AC931D82AB30E9F00AD8929 /* LaunchVC.swift */,
+				4AC931DA2AB3FF3300AD8929 /* MainVC.swift */,
+				4AC931DC2AB3FF7500AD8929 /* BookStoreModel.swift */,
+				4AC931E22AB4785F00AD8929 /* BookStoreCollectionViewCell.swift */,
 			);
 			path = cometext;
 			sourceTree = "<group>";
@@ -91,7 +97,6 @@
 				978294E265E74193534C7065 /* Pods-cometext.debug.xcconfig */,
 				1D29C3729C3BCD29C37A1E7A /* Pods-cometext.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -211,9 +216,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AC931C92AB308E300AD8929 /* ViewController.swift in Sources */,
-				4AC931D92AB30E9F00AD8929 /* LaunchVC.swift in Sources */,
+				4AC931DB2AB3FF3300AD8929 /* MainVC.swift in Sources */,
+				4AC931DD2AB3FF7500AD8929 /* BookStoreModel.swift in Sources */,
 				4AC931C52AB308E300AD8929 /* AppDelegate.swift in Sources */,
 				4AC931C72AB308E300AD8929 /* SceneDelegate.swift in Sources */,
+				4AC931E42AB4785F00AD8929 /* BookStoreCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
