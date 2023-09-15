@@ -7,6 +7,7 @@ target 'cometext' do
 
   # Pods for cometext
   pod 'SnapKit', '~> 5.6.0'
+  pod 'PanModal'
 
 
 end

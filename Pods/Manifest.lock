@@ -1,16 +1,20 @@
 PODS:
+  - PanModal (1.2.7)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
+  - PanModal
   - SnapKit (~> 5.6.0)
 
 SPEC REPOS:
   trunk:
+    - PanModal
     - SnapKit
 
 SPEC CHECKSUMS:
+  PanModal: 3e16ead1a907fb06f4df3f13492fd00149fa4974
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 20ee5874d406f9caa828efcb1f6ec670e9b8eec2
+PODFILE CHECKSUM: 32635a4ece5f93bcd1a749f9c2561a533fb9d8e7
 
 COCOAPODS: 1.12.1

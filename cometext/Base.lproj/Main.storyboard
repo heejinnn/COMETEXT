@@ -84,9 +84,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="채팅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gb5-dM-yAx">
-                                <rect key="frame" x="27" y="91" width="42" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="채팅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gb5-dM-yAx">
+                                <rect key="frame" x="26.999999999999996" y="91" width="41.666666666666657" height="28.666666666666671"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -94,7 +93,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="EaR-yx-xkg">
                                 <rect key="frame" x="89.333333333333329" y="144.00000000000003" width="196.33333333333337" height="262.66666666666674"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="문장을 입력해볼까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgi-2P-YsJ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="문장을 입력해볼까요?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rgi-2P-YsJ">
                                         <rect key="frame" x="0.0" y="0.0" width="196.33333333333334" height="27.666666666666668"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                         <nil key="textColor"/>
@@ -119,7 +118,7 @@
                                 <rect key="frame" x="0.0" y="423" width="375" height="306"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GKa-HF-h0q">
-                                        <rect key="frame" x="28" y="61" width="319" height="245"/>
+                                        <rect key="frame" x="28" y="68" width="319" height="238"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="D5n-Ao-vbh">
@@ -172,7 +171,7 @@
                                         </cells>
                                     </collectionView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="X0d-nZ-xAu">
-                                        <rect key="frame" x="28" y="8" width="157" height="32"/>
+                                        <rect key="frame" x="38" y="15" width="157" height="32"/>
                                         <segments>
                                             <segment title="온라인 서점"/>
                                             <segment title="도서관"/>
@@ -183,9 +182,9 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="GKa-HF-h0q" secondAttribute="bottom" id="50B-sS-Ho8"/>
                                     <constraint firstAttribute="trailing" secondItem="GKa-HF-h0q" secondAttribute="trailing" constant="28" id="5V0-B8-3Xa"/>
-                                    <constraint firstItem="X0d-nZ-xAu" firstAttribute="top" secondItem="gCv-Ys-CxO" secondAttribute="top" constant="8" id="YZc-Tl-uKP"/>
+                                    <constraint firstItem="X0d-nZ-xAu" firstAttribute="leading" secondItem="gCv-Ys-CxO" secondAttribute="leading" constant="38" id="JGv-pl-QGi"/>
+                                    <constraint firstItem="X0d-nZ-xAu" firstAttribute="top" secondItem="gCv-Ys-CxO" secondAttribute="top" constant="15" id="MRu-Bv-G2m"/>
                                     <constraint firstItem="GKa-HF-h0q" firstAttribute="leading" secondItem="gCv-Ys-CxO" secondAttribute="leading" constant="28" id="iVS-0Z-KE9"/>
-                                    <constraint firstItem="X0d-nZ-xAu" firstAttribute="leading" secondItem="gCv-Ys-CxO" secondAttribute="leading" constant="28" id="ozh-hB-3rM"/>
                                     <constraint firstItem="GKa-HF-h0q" firstAttribute="top" secondItem="X0d-nZ-xAu" secondAttribute="bottom" constant="22" id="zwL-xv-j6x"/>
                                 </constraints>
                             </view>
@@ -196,9 +195,11 @@
                             <constraint firstItem="EaR-yx-xkg" firstAttribute="centerX" secondItem="WaK-md-YUU" secondAttribute="centerX" id="2Zh-oA-czE"/>
                             <constraint firstItem="gCv-Ys-CxO" firstAttribute="trailing" secondItem="jhi-sv-Xhz" secondAttribute="trailing" id="9YJ-fK-JQo"/>
                             <constraint firstItem="gCv-Ys-CxO" firstAttribute="leading" secondItem="jhi-sv-Xhz" secondAttribute="leading" id="Une-Dm-H4G"/>
+                            <constraint firstItem="gb5-dM-yAx" firstAttribute="leading" secondItem="jhi-sv-Xhz" secondAttribute="leading" constant="27" id="Wl8-lt-UXu"/>
                             <constraint firstItem="gCv-Ys-CxO" firstAttribute="top" secondItem="EaR-yx-xkg" secondAttribute="bottom" constant="16.329999999999998" id="ae2-RL-Im2"/>
                             <constraint firstItem="gCv-Ys-CxO" firstAttribute="bottom" secondItem="jhi-sv-Xhz" secondAttribute="bottom" id="dJg-Iq-4Xr"/>
                             <constraint firstItem="EaR-yx-xkg" firstAttribute="top" secondItem="jhi-sv-Xhz" secondAttribute="top" constant="53" id="kh4-gy-T6J"/>
+                            <constraint firstItem="gb5-dM-yAx" firstAttribute="top" secondItem="jhi-sv-Xhz" secondAttribute="top" id="lxf-ag-hsj"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="채팅" id="xk2-C7-Ufl"/>
@@ -212,44 +213,51 @@
             </objects>
             <point key="canvasLocation" x="1376.8" y="1169.7044334975369"/>
         </scene>
-        <!--채팅-->
+        <!--ChatVC-->
         <scene sceneID="Vph-m4-AvI">
             <objects>
-                <viewController id="ohb-lG-NqZ" sceneMemberID="viewController">
+                <viewController id="ohb-lG-NqZ" userLabel="ChatVC" customClass="ChatVC" customModule="cometext" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1AV-Pq-BOs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Elx-Mm-Mum">
-                                <rect key="frame" x="0.0" y="739.66666666666663" width="375" height="34.333333333333371"/>
+                                <rect key="frame" x="15" y="727.66666666666663" width="345" height="34.333333333333371"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="채팅을 입력하세요." borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p4R-Ws-WC4">
-                                        <rect key="frame" x="0.0" y="0.0" width="205" height="34.333333333333336"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="채팅을 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p4R-Ws-WC4">
+                                        <rect key="frame" x="0.0" y="0.0" width="255" height="34.333333333333336"/>
+                                        <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBz-et-Whv">
-                                        <rect key="frame" x="215" y="0.0" width="75" height="34.333333333333336"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBz-et-Whv">
+                                        <rect key="frame" x="265" y="0.0" width="35" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="B"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMX-gM-NbA">
-                                        <rect key="frame" x="300" y="0.0" width="75" height="34.333333333333336"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMX-gM-NbA">
+                                        <rect key="frame" x="310" y="0.0" width="35" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="B"/>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V7j-EC-F05"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.96078431372549022" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Elx-Mm-Mum" firstAttribute="trailing" secondItem="V7j-EC-F05" secondAttribute="trailing" id="F8v-1H-DpR"/>
-                            <constraint firstItem="Elx-Mm-Mum" firstAttribute="leading" secondItem="V7j-EC-F05" secondAttribute="leading" id="d0S-Xk-pdP"/>
-                            <constraint firstAttribute="bottom" secondItem="Elx-Mm-Mum" secondAttribute="bottom" constant="38" id="u4S-U2-ZOp"/>
+                            <constraint firstAttribute="trailing" secondItem="Elx-Mm-Mum" secondAttribute="trailing" constant="15" id="EK3-md-mLV"/>
+                            <constraint firstAttribute="bottom" secondItem="Elx-Mm-Mum" secondAttribute="bottom" constant="50" id="Zht-yl-KnC"/>
+                            <constraint firstItem="Elx-Mm-Mum" firstAttribute="centerX" secondItem="1AV-Pq-BOs" secondAttribute="centerX" id="g8D-7J-KBE"/>
+                            <constraint firstItem="Elx-Mm-Mum" firstAttribute="leading" secondItem="1AV-Pq-BOs" secondAttribute="leading" constant="15" id="kzc-DU-3BH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="채팅" id="3Dw-Nd-JZC"/>
+                    <connections>
+                        <outlet property="bookFilteringBtn" destination="mBz-et-Whv" id="VGT-t0-iLx"/>
+                        <outlet property="inputChatSendBtn" destination="pMX-gM-NbA" id="ueJ-Id-nkK"/>
+                        <outlet property="inputChatTextField" destination="p4R-Ws-WC4" id="4i1-Ac-TBd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wWa-oL-jqJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

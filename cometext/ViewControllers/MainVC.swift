@@ -16,6 +16,10 @@ class MainVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //back버튼 스타일 지정
+        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationController?.navigationBar.topItem?.title = " "
+        
         //Data, Presentation 을 알려줌
         bookStoreCollectionView.dataSource = self
 
@@ -23,6 +27,14 @@ class MainVC: UIViewController{
         bookStoreCollectionView.delegate = self
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print(segue.destination)
+            if let destinationVC = segue.destination as? ChatVC {
+                // ChatVC로 이동하기 전에 Tab Bar 숨기기
+                
+                destinationVC.hidesBottomBarWhenPushed = true
+            }
+        }
 }
 
 extension MainVC: UICollectionViewDataSource{
@@ -37,7 +49,6 @@ extension MainVC: UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookStoreCollectionViewCell", for: indexPath) as! BookStoreCollectionViewCell
 
         let data = bookStoreList[indexPath.item]
-        // indexPath 안에는 섹션에 대한 정보, 섹션에 들어가는 데이터 정보 등이 있다
         cell.configure(data)
         return cell
     }
@@ -47,16 +58,16 @@ extension MainVC: UICollectionViewDataSource{
 extension MainVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let spacing: CGFloat = 10.0 // 원하는 간격 값으로 수정하세요.
+        let spacing: CGFloat = 10.0 // 원하는 간격 값으로 수정
         return UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20.0 // 원하는 줄 간격 값으로 수정하세요.
+        return 20.0 // 원하는 줄 간격 값으로 수정
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10.0 // 원하는 항목 간격 값으로 수정하세요.
+        return 10.0 // 원하는 항목 간격 값으로 수정
     }
 }
 
