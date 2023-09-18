@@ -12,14 +12,18 @@ import SnapKit
 
 class FilterModalVC: UIViewController {
     
-    let topicFilter : [TopicFilter] = TopicFilter.list
+    var dataSource1: [TopicFilter] = []
+    var dataSource2: [TopicFilter] = []
+    var dataSource3: [TopicFilter] = []
+    
+    let guideLabel = UILabel()
     
     let collectionView1: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 10
         
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
        
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -39,6 +43,7 @@ class FilterModalVC: UIViewController {
         
         return cv
     }()
+    
     let collectionView3: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()
@@ -55,34 +60,57 @@ class FilterModalVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        view.addSubview(guideLabel)
+        view.addSubview(collectionView1)
+        view.addSubview(collectionView2)
+        view.addSubview(collectionView3)
+        
+        // collectionView1의 데이터 소스 설정
+        dataSource1 = TopicFilter.list1 // 첫 번째 데이터 소스 사용
+
+        // collectionView2의 데이터 소스 설정
+        dataSource2 = TopicFilter.list2 // 두 번째 데이터 소스 사용
+
+        // collectionView3의 데이터 소스 설정
+        dataSource3 = TopicFilter.list3 // 세 번째 데이터 소스 사용
 
         configureCollectionView(collectionView: collectionView1)
         configureCollectionView(collectionView: collectionView2)
         configureCollectionView(collectionView: collectionView3)
 
-        view.addSubview(collectionView1)
-        view.addSubview(collectionView2)
-        view.addSubview(collectionView3)
-
-        // Layout and position your UICollectionViews as needed using SnapKit
-        collectionView1.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
+        
+        guideLabel.text = "더 정밀한 도서추천을 해드릴게요!"
+        guideLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        guideLabel.textAlignment = .center
+         
+        guideLabel.snp.makeConstraints{make in
+            make.top.equalToSuperview().offset(30)
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().offset(-20)
-            make.height.equalTo(100)
+            make.height.equalTo(30)
+        }
+    
+        collectionView1.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(100)
+            make.left.equalToSuperview().offset(20)
+            make.right.equalToSuperview().offset(-20)
+            make.height.equalTo(150)
         }
         collectionView2.snp.makeConstraints { make in
             make.top.equalTo(collectionView1.snp.bottom).offset(20)
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().offset(-20)
-            make.height.equalTo(100)
+            make.height.equalTo(150)
         }
         collectionView3.snp.makeConstraints { make in
             make.top.equalTo(collectionView2.snp.bottom).offset(20)
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().offset(-20)
-            make.height.equalTo(100)
+            make.height.equalTo(150)
         }
+        
+        
     }
     private func configureCollectionView(collectionView: UICollectionView) {
        // Configure your UICollectionViews here
@@ -112,58 +140,49 @@ extension FilterModalVC: PanModalPresentable {
 extension FilterModalVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
            // 각 UICollectionView의 셀 개수 반환
-            return topicFilter.count
-       }
+        switch collectionView {
+        case collectionView1:
+            return dataSource1.count
+        case collectionView2:
+            return dataSource2.count
+        case collectionView3:
+            return dataSource3.count
+        default:
+            return 0
+        }
+   }
 
-       func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-           // 커스텀 셀 반환
-           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as! CustomCollectionViewCell
+   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+       // 커스텀 셀 반환
+       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as! CustomCollectionViewCell
 
-           let data = topicFilter[indexPath.item]
-           cell.configure(data)
-           
-           return cell
-       }
+      var topic: TopicFilter?
+
+      switch collectionView {
+      case collectionView1:
+          topic = dataSource1[indexPath.item]
+      case collectionView2:
+          topic = dataSource2[indexPath.item]
+      case collectionView3:
+          topic = dataSource3[indexPath.item]
+      default:
+          break
+      }
+
+      // 셀에 데이터를 설정
+      if let topic = topic {
+          cell.configure(topic)
+      }
+
+      return cell
+   }
 }
 extension FilterModalVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // 각 셀의 크기 설정
-        return CGSize(width: 80, height: 80)
+        return CGSize(width: 100, height: 30)
     }
 }
 
-// 커스텀 UICollectionViewCell
-class CustomCollectionViewCell: UICollectionViewCell {
-    let label = UILabel()
-
-       override init(frame: CGRect) {
-           super.init(frame: frame)
-           configureLabel()
-       }
-
-       required init?(coder: NSCoder) {
-           super.init(coder: coder)
-           configureLabel()
-       }
-
-       private func configureLabel() {
-           // UILabel 설정
-           label.textAlignment = .center
-           label.textColor = .black
-           label.font = UIFont.systemFont(ofSize: 16)
-           label.translatesAutoresizingMaskIntoConstraints = false
-
-           // UILabel을 셀에 추가
-           contentView.addSubview(label)
-
-           // UILabel을 SnapKit을 사용하여 제약 조건을 설정
-           label.snp.makeConstraints { make in
-               make.edges.equalToSuperview()
-           }
-       }
-    func configure(_ topic: TopicFilter){
-        label.text = topic.topicName
-    }
-}
 
 

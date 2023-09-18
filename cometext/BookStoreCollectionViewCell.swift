@@ -23,7 +23,7 @@ class BookStoreCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(_ bookStore: BookStoreModel){
-        bookStoreImg?.image = UIImage(named: "chatImg")
+        bookStoreImg?.image = bookStore.imgName
         bookStoreName?.text = bookStore.storeName
     }
 
