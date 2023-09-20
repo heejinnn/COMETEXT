@@ -17,5 +17,4 @@ class ChatData {
         self.date = date
         self.title = title
     }
-    
 }

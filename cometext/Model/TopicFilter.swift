@@ -12,6 +12,7 @@ struct TopicFilter{
 // 첫 번째 데이터 소스
 extension TopicFilter {
     static let list1: [TopicFilter] = [
+        TopicFilter(id: 0, topicName: "전체"),
         TopicFilter(id: 1, topicName: "철학"),
         TopicFilter(id: 2, topicName: "종교"),
         TopicFilter(id: 3, topicName: "사회과학"),
@@ -27,6 +28,7 @@ extension TopicFilter {
 // 두 번째 데이터 소스
 extension TopicFilter {
     static let list2: [TopicFilter] = [
+        TopicFilter(id: 0, topicName: "전체"),
         TopicFilter(id: 1, topicName: "강연집"),
         TopicFilter(id: 2, topicName: "도서관"),
         TopicFilter(id: 3, topicName: "문학정보"),
@@ -40,6 +42,7 @@ extension TopicFilter {
 // 세 번째 데이터 소스
 extension TopicFilter {
     static let list3: [TopicFilter] = [
+        TopicFilter(id: 0, topicName: "전체"),
         TopicFilter(id: 1, topicName: "1999년 이전"),
         TopicFilter(id: 2, topicName: "2000~2004"),
         TopicFilter(id: 3, topicName: "2005~2009"),

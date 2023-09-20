@@ -15,11 +15,11 @@ struct BookStoreModel{
 }
 extension BookStoreModel{
     static let list: [BookStoreModel] = [
-        BookStoreModel(id: 1, storeName: "인터파크", imgName: UIImage(named: "chat")!),
-        BookStoreModel(id: 2, storeName: "예스 24", imgName: UIImage(named: "chat")!),
-        BookStoreModel(id: 3, storeName: "알라딘", imgName: UIImage(named: "chat")!),
-        BookStoreModel(id: 4, storeName: "교보문고", imgName: UIImage(named: "chat")!),
-        BookStoreModel(id: 5, storeName: "영풍문고", imgName: UIImage(named: "chat")!)
+        BookStoreModel(id: 1, storeName: "인터파크", imgName: UIImage(named: "interpark")!),
+        BookStoreModel(id: 2, storeName: "예스 24", imgName: UIImage(named: "yes24")!),
+        BookStoreModel(id: 3, storeName: "알라딘", imgName: UIImage(named: "aladdin")!),
+        BookStoreModel(id: 4, storeName: "교보문고", imgName: UIImage(named: "kyobo")!),
+        BookStoreModel(id: 5, storeName: "영풍문고", imgName: UIImage(named: "yeongpung")!)
     ]
 }
 

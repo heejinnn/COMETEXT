@@ -84,10 +84,10 @@ extension HistoryVC: UITableViewDataSource {
         
         // 셀의 ContentView에 마진을 설정
         let margin: CGFloat = 50.0
-        cell.contentView.layoutMargins = UIEdgeInsets(top: 0, left: margin, bottom: 0, right: margin)
+        cell.layoutMargins = UIEdgeInsets(top: 20, left: margin, bottom: 0, right: margin)
         
-        cell.contentView.layer.cornerRadius = 20
-        cell.contentView.layer.masksToBounds = true
+        cell.layer.cornerRadius = 20
+        cell.layer.masksToBounds = true
         
         let sectionTitle = sectionTitles[indexPath.section]
         if let chatData = groupedData[sectionTitle]?[indexPath.row] {
@@ -108,7 +108,7 @@ extension HistoryVC: UITableViewDelegate {
     //스와이프 액션 구현(오른쪽)
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         // 삭제 버튼 구현
-        let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { (action, view, completion) in
             let sectionTitle = self.sectionTitles[indexPath.section]
             if var chatDataSection = self.groupedData[sectionTitle] {
                 chatDataSection.remove(at: indexPath.row)
@@ -121,8 +121,15 @@ extension HistoryVC: UITableViewDelegate {
             completion(true)
         }
         
-        return UISwipeActionsConfiguration(actions: [delete])
+        // 삭제 버튼에 이미지 추가
+        deleteAction.image = UIImage(named: "trash") // 이미지 이름을 적절하게 수정
+        deleteAction.backgroundColor = UIColor(named: "Pink1")
+        
+        // 다른 스와이프 액션 버튼도 추가 가능
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
+
     //셀 클릭시 색상 원래로 돌아오기
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

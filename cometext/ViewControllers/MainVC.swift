@@ -12,6 +12,7 @@ class MainVC: UIViewController{
     let bookStoreList : [BookStoreModel] = BookStoreModel.list
     
     @IBOutlet weak var bookStoreCollectionView: UICollectionView!
+    @IBOutlet weak var newChatBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,10 @@ class MainVC: UIViewController{
         //back버튼 스타일 지정
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationController?.navigationBar.topItem?.title = " "
+        self.navigationController?.navigationBar.backgroundColor = .white
+        
+        newChatBtn.layer.cornerRadius = 15
+            
         
         //Data, Presentation 을 알려줌
         bookStoreCollectionView.dataSource = self
@@ -27,6 +32,10 @@ class MainVC: UIViewController{
         bookStoreCollectionView.delegate = self
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print(segue.destination)
             if let destinationVC = segue.destination as? ChatVC {

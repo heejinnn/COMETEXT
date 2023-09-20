@@ -17,6 +17,9 @@ class FilterModalVC: UIViewController {
     var dataSource3: [TopicFilter] = []
     
     let guideLabel = UILabel()
+    let subjectLabel = UILabel()
+    let bookLabel = UILabel()
+    let yearLabel = UILabel()
     
     let collectionView1: UICollectionView = {
         
@@ -62,6 +65,9 @@ class FilterModalVC: UIViewController {
         view.backgroundColor = .white
         
         view.addSubview(guideLabel)
+        view.addSubview(subjectLabel)
+        view.addSubview(bookLabel)
+        view.addSubview(yearLabel)
         view.addSubview(collectionView1)
         view.addSubview(collectionView2)
         view.addSubview(collectionView3)
@@ -83,6 +89,15 @@ class FilterModalVC: UIViewController {
         guideLabel.text = "더 정밀한 도서추천을 해드릴게요!"
         guideLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         guideLabel.textAlignment = .center
+        
+        subjectLabel.text = "주제"
+        subjectLabel.font = UIFont.systemFont(ofSize: 15)
+        
+        bookLabel.text = "도서 종류"
+        bookLabel.font = UIFont.systemFont(ofSize: 15)
+        
+        yearLabel.text = "연도"
+        yearLabel.font = UIFont.systemFont(ofSize: 15)
          
         guideLabel.snp.makeConstraints{make in
             make.top.equalToSuperview().offset(30)
@@ -90,21 +105,38 @@ class FilterModalVC: UIViewController {
             make.right.equalToSuperview().offset(-20)
             make.height.equalTo(30)
         }
+        
+        subjectLabel.snp.makeConstraints{make in
+            make.top.equalTo(guideLabel.snp.bottom).offset(20)
+            make.left.equalToSuperview().offset(15)
+        }
     
         collectionView1.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(100)
+            make.top.equalTo(subjectLabel.snp.bottom).offset(20)
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().offset(-20)
             make.height.equalTo(150)
         }
-        collectionView2.snp.makeConstraints { make in
+        
+        bookLabel.snp.makeConstraints{make in
             make.top.equalTo(collectionView1.snp.bottom).offset(20)
+            make.left.equalToSuperview().offset(15)
+        }
+        
+        collectionView2.snp.makeConstraints { make in
+            make.top.equalTo(bookLabel.snp.bottom).offset(20)
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().offset(-20)
-            make.height.equalTo(150)
+            make.height.equalTo(130)
         }
-        collectionView3.snp.makeConstraints { make in
+        
+        yearLabel.snp.makeConstraints{make in
             make.top.equalTo(collectionView2.snp.bottom).offset(20)
+            make.left.equalToSuperview().offset(15)
+        }
+        
+        collectionView3.snp.makeConstraints { make in
+            make.top.equalTo(yearLabel.snp.bottom).offset(20)
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().offset(-20)
             make.height.equalTo(150)

@@ -31,17 +31,19 @@ class ProgressBarView: UIView, CAAnimationDelegate {
         
         layer.addSublayer(circleLayer)
     }
-
     
     func fillProgressBar(duration: TimeInterval) {
-           let animation = CABasicAnimation(keyPath: "strokeEnd")
-           animation.toValue = 1
-           animation.duration = duration
-           animation.fillMode = CAMediaTimingFillMode.forwards
-           animation.isRemovedOnCompletion = false
-           animation.delegate = self // 델리게이트를 설정합니다.
-           
-           circleLayer.add(animation, forKey: "progressAnimation")
+        // ProgressBar를 다시 생성하고 애니메이션을 시작합니다.
+        createCircleLayer()
+        
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.toValue = 1
+        animation.duration = duration
+        animation.fillMode = CAMediaTimingFillMode.forwards
+        animation.isRemovedOnCompletion = false
+        animation.delegate = self // 델리게이트를 설정합니다.
+        
+        circleLayer.add(animation, forKey: "progressAnimation")
     }
     
     // 애니메이션이 완료될 때 호출되는 델리게이트 메서드
