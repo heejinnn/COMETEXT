@@ -39,11 +39,6 @@ class ChatVC: UIViewController{
             make.width.equalTo(90)
             make.height.equalTo(40)
         }
-    
-//        imageLabel.snp.makeConstraints { make in
-//            make.centerX.equalToSuperview()
-//            make.centerY.equalToSuperview()
-//        }
      
        initStyle()
      
@@ -128,7 +123,14 @@ class ChatVC: UIViewController{
              sendMessage.lineBreakMode = .byWordWrapping // 단어 단위로 줄 바꿈
 
              // 텍스트의 크기를 계산하여 label의 width를 설정
-            ㅈ
+             
+             let labelMaxWidth = chatDataScrollView.bounds.width - 115 // 최대 허용 너비
+             let textRect = text.boundingRect(with: CGSize(width: labelMaxWidth, height: .greatestFiniteMagnitude),
+                                       options: .usesLineFragmentOrigin,
+                                       attributes: [NSAttributedString.Key.font: sendMessage.font!],
+                                       context: nil)
+             let labelWidth = textRect.width // 텍스트의 실제 너비
+             let labelheight = textRect.height
 
              // UILabel을 messageContainer에 추가
              messageContainer.addSubview(sendMessage)
@@ -145,7 +147,7 @@ class ChatVC: UIViewController{
              }
 
              sendMessage.snp.makeConstraints { make in
-                 make.edges.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+                 make.edges.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 0))
              }
 
              // UIScrollView의 contentSize 업데이트

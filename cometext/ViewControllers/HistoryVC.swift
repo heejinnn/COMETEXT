@@ -82,13 +82,6 @@ extension HistoryVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatDataTableViewCell", for: indexPath) as! ChatDataTableViewCell
         
-        // 셀의 ContentView에 마진을 설정
-        let margin: CGFloat = 50.0
-        cell.layoutMargins = UIEdgeInsets(top: 20, left: margin, bottom: 0, right: margin)
-        
-        cell.layer.cornerRadius = 20
-        cell.layer.masksToBounds = true
-        
         let sectionTitle = sectionTitles[indexPath.section]
         if let chatData = groupedData[sectionTitle]?[indexPath.row] {
             cell.configure(withTitle: chatData.title)
@@ -134,4 +127,10 @@ extension HistoryVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70 // 각 UITableViewCell의 높이를 설정
+    }
 }
+
+
