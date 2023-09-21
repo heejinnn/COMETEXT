@@ -11,12 +11,13 @@ import SnapKit
 class CustomCollectionViewCell: UICollectionViewCell {
     let filterBtn = UIButton() // UIButton으로 변경
     var isPrimaryColor = false // 초기에는 false로 설정하여 Gray2 색상으로 시작
+    var clickCount = 0
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureButton() // 메서드 이름 변경
 
-        filterBtn.addTarget(self, action: #selector(changeButtonColor), for: .touchUpInside)
+        filterBtn.addTarget(self, action: #selector(clickBtn), for: .touchUpInside)
     }
 
     required init?(coder: NSCoder) {
@@ -49,9 +50,14 @@ class CustomCollectionViewCell: UICollectionViewCell {
         filterBtn.setTitle(topic.topicName, for: .normal) // 버튼의 텍스트 설정
     }
 
-    @objc func changeButtonColor() {
+    @objc func clickBtn() {
         isPrimaryColor.toggle()
+        clickCount = clickCount + 1
         setButtonBackgroundColor()
+    }
+    // 클릭 횟수를 반환하는 메서드
+    func getClickCount() -> Int {
+        return clickCount
     }
 
     private func setButtonBackgroundColor() {

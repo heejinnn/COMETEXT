@@ -16,10 +16,17 @@ class FilterModalVC: UIViewController {
     var dataSource2: [TopicFilter] = []
     var dataSource3: [TopicFilter] = []
     
+    var clickCount = 1
+    
     let guideLabel = UILabel()
     let subjectLabel = UILabel()
     let bookLabel = UILabel()
     let yearLabel = UILabel()
+
+    var clickFilterNum = 0
+    let btnStackView = UIStackView()
+    let closeBtn = UIButton()
+    let useBtn = UIButton()
     
     let collectionView1: UICollectionView = {
         
@@ -64,6 +71,15 @@ class FilterModalVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        closeBtn.backgroundColor = UIColor(named: "Gray2")
+        useBtn.backgroundColor = UIColor(named: "Primary")
+        
+        btnStackView.axis = .horizontal
+        btnStackView.spacing = 20
+        btnStackView.distribution = .fill
+        btnStackView.addArrangedSubview(closeBtn)
+        btnStackView.addArrangedSubview(useBtn)
+        
         view.addSubview(guideLabel)
         view.addSubview(subjectLabel)
         view.addSubview(bookLabel)
@@ -71,6 +87,7 @@ class FilterModalVC: UIViewController {
         view.addSubview(collectionView1)
         view.addSubview(collectionView2)
         view.addSubview(collectionView3)
+        view.addSubview(btnStackView)
         
         // collectionView1의 데이터 소스 설정
         dataSource1 = TopicFilter.list1 // 첫 번째 데이터 소스 사용
@@ -98,6 +115,16 @@ class FilterModalVC: UIViewController {
         
         yearLabel.text = "연도"
         yearLabel.font = UIFont.systemFont(ofSize: 15)
+        
+        closeBtn.setTitle("닫기", for: .normal)
+        closeBtn.setTitleColor(.black, for: .normal)
+        closeBtn.layer.cornerRadius = 10
+        
+        useBtn.setTitle("적용", for: .normal)
+        useBtn.setTitleColor(.black, for: .normal)
+        useBtn.layer.cornerRadius = 10
+        
+        useBtn.addTarget(self, action: #selector(clickUseBtn), for: .touchUpInside)
          
         guideLabel.snp.makeConstraints{make in
             make.top.equalToSuperview().offset(30)
@@ -142,6 +169,15 @@ class FilterModalVC: UIViewController {
             make.height.equalTo(150)
         }
         
+        btnStackView.snp.makeConstraints { make in
+            make.top.equalTo(collectionView3.snp.bottom).offset(20)
+            make.left.equalToSuperview().offset(20)
+            make.right.equalToSuperview().offset(-20)
+            make.height.equalTo(40)
+        }
+        useBtn.snp.makeConstraints{make in
+            make.width.equalTo(220)
+        }
         
     }
     private func configureCollectionView(collectionView: UICollectionView) {
@@ -152,6 +188,18 @@ class FilterModalVC: UIViewController {
        collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: "CustomCollectionViewCell")
  
    }
+    
+    @objc func clickUseBtn(){
+//        let cell = CustomCollectionViewCell()
+//        let clickCount = cell.getClickCount()
+//        print(clickCount)
+        self.dismiss(animated: true)
+    }
+    
+    func useBtnClickCheck() -> Int{
+        print(clickCount)
+        return clickCount
+    }
 
 }
 extension FilterModalVC: PanModalPresentable {
@@ -207,6 +255,11 @@ extension FilterModalVC: UICollectionViewDataSource, UICollectionViewDelegate {
       }
 
       return cell
+   }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       // 사용자가 아이템을 클릭한 경우 이곳에서 작업을 수행
+       // indexPath를 사용하여 클릭한 아이템의 정보에 접근 가능합니다.
+       
    }
 }
 extension FilterModalVC: UICollectionViewDelegateFlowLayout {

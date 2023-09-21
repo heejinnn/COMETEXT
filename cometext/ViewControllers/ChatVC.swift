@@ -15,6 +15,12 @@ class ChatVC: UIViewController{
     let chatGuideLabel = UILabel()
     let sendLabelContainer = UIView()
     
+    let clickFilterCount = UILabel()
+    
+    var cnt = 0
+    
+    var index = 0
+    
     @IBOutlet weak var progressView: ProgressBarView!
     @IBOutlet weak var inputChatTextView: UITextView!
     @IBOutlet weak var bookFilteringBtn: UIButton!
@@ -49,6 +55,7 @@ class ChatVC: UIViewController{
     
        // chatGuideLabel을 초기에 표시합니다.
        chatGuideLabel.isHidden = false
+       clickFilterCount.isHidden = true
     }
      
      private func initStyle() {
@@ -74,6 +81,12 @@ class ChatVC: UIViewController{
          chatGuideLabel.text = "안녕! 도서 문장을 입력해보세요 :)"
          chatGuideLabel.font = UIFont.systemFont(ofSize: 16)
          
+         clickFilterCount.text = "* 3가지 맞춤 키워드가 적용됐어요!"
+         clickFilterCount.font = UIFont.systemFont(ofSize: 13, weight: .bold)
+         clickFilterCount.textColor = UIColor(named: "Blue1")
+        
+         view.addSubview(clickFilterCount)
+         
          sendLabelContainer.addSubview(chatGuideLabel)
          view.addSubview(sendLabelContainer)
          
@@ -98,12 +111,20 @@ class ChatVC: UIViewController{
              make.edges.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 10))
          }
          
+         clickFilterCount.snp.makeConstraints{make in
+             make.leading.equalTo(view.snp.leading).offset(22) // 왼쪽 여백 추가
+             make.bottom.equalTo(sendLabelContainer.snp.top).offset(-5)
+             make.width.equalTo(200) // 여백 추가
+             make.height.equalTo(30) // 여백 추가
+         }
+         
          
      }
      
      @objc func showModal() {
          let filtermodalVC = FilterModalVC()
          self.presentPanModal(filtermodalVC)
+         cnt = 1
      }
      
      @objc func addChatData() {
@@ -171,27 +192,27 @@ class ChatVC: UIViewController{
         bookStackView.axis = .vertical // 수직 정렬로 설정
         bookStackView.spacing = 10 // 각 뷰 사이의 간격 설정
         bookStackView.alignment = .leading // 정렬 방식 설정
-       
+        
         // 레이블 생성 및 설정
         let bookSectionLabel = UILabel()
         bookSectionLabel.text = "도서 정보"
         bookSectionLabel.font = UIFont.boldSystemFont(ofSize: 20)
         
         let name = UILabel()
-        name.text = "제목: \(receiveData[0].name)"
+        name.text = "제목: \(receiveData[index].name)"
         name.numberOfLines = 0
         name.lineBreakMode = .byWordWrapping
-       
+        
         let author = UILabel()
-        author.text = "저자: \(receiveData[0].author)"
+        author.text = "저자: \(receiveData[index].author)"
         author.numberOfLines = 0
         author.lineBreakMode = .byWordWrapping
-       
+        
         let summary = UILabel()
-        summary.text = "줄거리: \(receiveData[0].summary)"
+        summary.text = "줄거리: \(receiveData[index].summary)"
         summary.numberOfLines = 0
         summary.lineBreakMode = .byWordWrapping
-       
+        
         // 스택뷰에 레이블 추가
         bookStackView.addArrangedSubview(bookSectionLabel)
         bookStackView.addArrangedSubview(name)
@@ -206,7 +227,7 @@ class ChatVC: UIViewController{
             make.top.equalTo(chatDataScrollView.contentSize.height + 40)
             make.trailing.equalTo(view.snp.trailing).offset(-70)
         }
-
+        
         bookStackView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
         }
@@ -221,16 +242,16 @@ class ChatVC: UIViewController{
         sentenceStackView.spacing = 10 // 각 뷰 사이의 간격 설정
         sentenceStackView.alignment = .leading // 정렬 방식 설정
         sentenceStackView.distribution = .fill
-
+        
         let sentenceSectionLabel = UILabel()
         sentenceSectionLabel.text = "유사 문장"
         sentenceSectionLabel.font = UIFont.boldSystemFont(ofSize: 20)
-
+        
         let sentence = UILabel()
-        sentence.text = receiveData[0].similarSentence
+        sentence.text = receiveData[index].similarSentence
         sentence.numberOfLines = 0
         sentence.lineBreakMode = .byWordWrapping
-
+        
         let seeMoreContainer = UIView() // 버튼을 감싸는 컨테이너 뷰 추가
         let seeMoreBtn = UIButton()
         seeMoreBtn.setTitle("더보기", for: .normal)
@@ -241,11 +262,11 @@ class ChatVC: UIViewController{
         seeMoreContainer.addSubview(seeMoreBtn) // 버튼을 컨테이너 뷰에 추가
         
         seeMoreBtn.addTarget(self, action: #selector(showSentenceModal), for: .touchUpInside)
-
+        
         sentenceStackView.addArrangedSubview(sentenceSectionLabel)
         sentenceStackView.addArrangedSubview(sentence)
         sentenceStackView.addArrangedSubview(seeMoreContainer) // 컨테이너 뷰를 stackview에 추가
-
+        
         seeMoreBtn.snp.makeConstraints{make in
             make.width.equalTo(50)
             make.height.equalTo(20)
@@ -266,17 +287,27 @@ class ChatVC: UIViewController{
             make.top.equalTo(chatDataScrollView.contentSize.height + receiveLabelContainer.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height + 60)
             make.trailing.equalTo(view.snp.trailing).offset(-70)
         }
-
+        
         sentenceStackView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
         }
         
         chatDataScrollView.contentSize.height += receiveLabelContainer.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height + receiveSentenceContainer.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height + 70  // 여백 추가
+        index += 1
     }
     
     @objc func showSentenceModal() {
         let sentenceModalVC = SentenceModalVC()
         self.presentPanModal(sentenceModalVC)
+        clickFilterCount.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+       // cnt = FilterModalVC().useBtnClickCheck()
+        if cnt == 1{
+            clickFilterCount.isHidden = false
+            cnt += 1
+        }
     }
 
 }
@@ -287,6 +318,7 @@ extension ChatVC: UITextViewDelegate {
         placeholderLabel.isHidden = !inputChatTextView.text.isEmpty
         sendLabelContainer.isHidden = !inputChatTextView.text.isEmpty
         sendLabelContainer.isHidden = true
+        clickFilterCount.isHidden = true
     }
 }
 

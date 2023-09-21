@@ -13,12 +13,14 @@ class SentenceModalVC: UIViewController {
     let sentenceLabel = UILabel()
     
     let receiveData: [ReceiveData] = ReceiveData.list
+    
+    var index = 0
    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        sentenceLabel.text = receiveData[0].entireSentence
+        sentenceLabel.text = receiveData[index].entireSentence
         sentenceLabel.numberOfLines = 0
         sentenceLabel.lineBreakMode = .byWordWrapping
         
@@ -29,6 +31,7 @@ class SentenceModalVC: UIViewController {
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }
+        index += 1
     }
 
 }

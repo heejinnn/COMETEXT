@@ -6,6 +6,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="파라미터 님" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCb-di-drE">
-                                <rect key="frame" x="35" y="84" width="145.33333333333334" height="38.333333333333343"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user1님" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCb-di-drE">
+                                <rect key="frame" x="35.000000000000007" y="84" width="109.66666666666669" height="39"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="10" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Eco-iT-kHI">
-                                <rect key="frame" x="0.0" y="162.33333333333337" width="375" height="220"/>
+                                <rect key="frame" x="0.0" y="163" width="375" height="220"/>
                                 <color key="backgroundColor" red="0.95294117647058818" green="0.96078431372549022" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="VtB-8Q-D6x"/>
@@ -59,7 +60,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEm-Bq-d7y">
-                                <rect key="frame" x="10" y="392.33333333333331" width="87.333333333333329" height="35"/>
+                                <rect key="frame" x="10" y="393" width="87.333333333333329" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="버전 정보">
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
@@ -157,10 +158,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8BA-z3-9rD">
+                                <rect key="frame" x="316" y="115.66666666666667" width="20" height="18.666666666666657"/>
+                                <color key="tintColor" name="Gray1"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cgk-Iz-5gp"/>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.96078431372549022" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="fdv-Gs-A0a" firstAttribute="top" secondItem="8BA-z3-9rD" secondAttribute="bottom" constant="28" id="6Tv-JG-zXa"/>
                             <constraint firstItem="c0N-Rg-Ix5" firstAttribute="leading" secondItem="cgk-Iz-5gp" secondAttribute="leading" constant="20" id="Dyl-4G-1xk"/>
                             <constraint firstItem="fdv-Gs-A0a" firstAttribute="leading" secondItem="cgk-Iz-5gp" secondAttribute="leading" id="Kvm-Qe-Tdz"/>
                             <constraint firstItem="2PO-89-ypq" firstAttribute="top" secondItem="cgk-Iz-5gp" secondAttribute="top" constant="10" id="M8i-Hw-yvj"/>
@@ -169,6 +175,7 @@
                             <constraint firstItem="cgk-Iz-5gp" firstAttribute="bottom" secondItem="fdv-Gs-A0a" secondAttribute="bottom" id="fWg-gd-gK6"/>
                             <constraint firstItem="fdv-Gs-A0a" firstAttribute="trailing" secondItem="cgk-Iz-5gp" secondAttribute="trailing" id="jdB-DG-UBK"/>
                             <constraint firstItem="cgk-Iz-5gp" firstAttribute="trailing" secondItem="c0N-Rg-Ix5" secondAttribute="trailing" constant="20" id="lK1-bF-Ep0"/>
+                            <constraint firstItem="cgk-Iz-5gp" firstAttribute="trailing" secondItem="8BA-z3-9rD" secondAttribute="trailing" constant="39" id="mZb-6l-YJ4"/>
                             <constraint firstItem="fdv-Gs-A0a" firstAttribute="top" secondItem="c0N-Rg-Ix5" secondAttribute="bottom" constant="20" id="rWQ-Qd-d8W"/>
                             <constraint firstItem="c0N-Rg-Ix5" firstAttribute="centerX" secondItem="ajx-kx-wU7" secondAttribute="centerX" id="tZg-Xn-uDn"/>
                         </constraints>
@@ -259,11 +266,49 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KxY-eb-IB8">
+                                <rect key="frame" x="42" y="414.66666666666669" width="318" height="155.00000000000006"/>
+                                <color key="backgroundColor" red="0.95294117647058818" green="0.96078431372549022" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GuA-1D-WKq">
+                                    <size key="itemSize" width="96" height="160"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="NewBookInfoCollectionViewCell" reuseIdentifier="NewBookInfoCollectionViewCell" id="ixT-94-JFz" customClass="NewBookInfoCollectionViewCell" customModule="cometext" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-2.3333333333333335" width="96" height="160"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CzT-bq-2r1">
+                                            <rect key="frame" x="0.0" y="0.0" width="96" height="160"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1BN-p5-Als">
+                                                    <rect key="frame" x="0.0" y="9" width="96" height="140.66666666666669"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="yb5-tU-1Lw"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="1BN-p5-Als" secondAttribute="bottom" constant="10" id="1f4-yV-RhX"/>
+                                                <constraint firstAttribute="trailing" secondItem="1BN-p5-Als" secondAttribute="trailing" id="6kE-2N-XyB"/>
+                                                <constraint firstItem="1BN-p5-Als" firstAttribute="leading" secondItem="CzT-bq-2r1" secondAttribute="leading" id="JbY-zH-Xaf"/>
+                                                <constraint firstItem="1BN-p5-Als" firstAttribute="top" secondItem="CzT-bq-2r1" secondAttribute="top" constant="10" id="MOB-Fa-b9V"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="96" height="160"/>
+                                        <connections>
+                                            <outlet property="newBookImg" destination="1BN-p5-Als" id="54F-Wd-wIV"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCv-Ys-CxO">
-                                <rect key="frame" x="0.0" y="381" width="375" height="348"/>
+                                <rect key="frame" x="0.0" y="584.66666666666663" width="375" height="144.33333333333337"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GKa-HF-h0q">
-                                        <rect key="frame" x="28" y="68" width="319" height="280"/>
+                                        <rect key="frame" x="28" y="66" width="319" height="78.333333333333314"/>
                                         <color key="backgroundColor" red="0.95294117647058818" green="0.96078431372549022" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="D5n-Ao-vbh">
@@ -309,17 +354,18 @@
                                                 <size key="customSize" width="77" height="91"/>
                                                 <connections>
                                                     <outlet property="bookStoreImg" destination="AYW-dl-Z81" id="mX1-Gc-TYl"/>
-                                                    <outlet property="bookStoreName" destination="hMy-md-SVg" id="apN-fl-2hC"/>
+                                                    <outlet property="bookStoreName" destination="hMy-md-SVg" id="eob-Ay-8GW"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="X0d-nZ-xAu">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="X0d-nZ-xAu">
                                         <rect key="frame" x="38" y="15" width="157" height="32"/>
                                         <segments>
                                             <segment title="온라인 서점"/>
                                             <segment title="도서관"/>
                                         </segments>
+                                        <color key="selectedSegmentTintColor" name="Primary"/>
                                     </segmentedControl>
                                 </subviews>
                                 <constraints>
@@ -328,21 +374,37 @@
                                     <constraint firstItem="X0d-nZ-xAu" firstAttribute="leading" secondItem="gCv-Ys-CxO" secondAttribute="leading" constant="38" id="JGv-pl-QGi"/>
                                     <constraint firstItem="X0d-nZ-xAu" firstAttribute="top" secondItem="gCv-Ys-CxO" secondAttribute="top" constant="15" id="MRu-Bv-G2m"/>
                                     <constraint firstItem="GKa-HF-h0q" firstAttribute="leading" secondItem="gCv-Ys-CxO" secondAttribute="leading" constant="28" id="iVS-0Z-KE9"/>
-                                    <constraint firstItem="GKa-HF-h0q" firstAttribute="top" secondItem="X0d-nZ-xAu" secondAttribute="bottom" constant="22" id="zwL-xv-j6x"/>
+                                    <constraint firstItem="GKa-HF-h0q" firstAttribute="top" secondItem="X0d-nZ-xAu" secondAttribute="bottom" constant="20" id="zwL-xv-j6x"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="신간 정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dV-ug-Hlq">
+                                <rect key="frame" x="42.000000000000007" y="391.66666666666669" width="73.666666666666686" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jhi-sv-Xhz"/>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.96078431372549022" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="EaR-yx-xkg" firstAttribute="centerX" secondItem="WaK-md-YUU" secondAttribute="centerX" id="2Zh-oA-czE"/>
                             <constraint firstItem="gCv-Ys-CxO" firstAttribute="trailing" secondItem="jhi-sv-Xhz" secondAttribute="trailing" id="9YJ-fK-JQo"/>
+                            <constraint firstItem="0dV-ug-Hlq" firstAttribute="top" secondItem="EaR-yx-xkg" secondAttribute="bottom" constant="27" id="GhG-ba-Qp8"/>
                             <constraint firstItem="gCv-Ys-CxO" firstAttribute="leading" secondItem="jhi-sv-Xhz" secondAttribute="leading" id="Une-Dm-H4G"/>
+                            <constraint firstItem="KxY-eb-IB8" firstAttribute="top" secondItem="0dV-ug-Hlq" secondAttribute="bottom" constant="5" id="V0c-SO-HCf"/>
+                            <constraint firstItem="gCv-Ys-CxO" firstAttribute="top" secondItem="KxY-eb-IB8" secondAttribute="bottom" constant="15" id="V4I-lL-68f"/>
                             <constraint firstItem="gb5-dM-yAx" firstAttribute="leading" secondItem="jhi-sv-Xhz" secondAttribute="leading" constant="27" id="Wl8-lt-UXu"/>
-                            <constraint firstItem="gCv-Ys-CxO" firstAttribute="top" secondItem="EaR-yx-xkg" secondAttribute="bottom" constant="16.329999999999998" id="ae2-RL-Im2"/>
+                            <constraint firstItem="KxY-eb-IB8" firstAttribute="trailing" secondItem="jhi-sv-Xhz" secondAttribute="trailing" constant="-15" id="Zcw-fO-4cZ"/>
+                            <constraint firstItem="gCv-Ys-CxO" firstAttribute="top" secondItem="EaR-yx-xkg" secondAttribute="bottom" constant="220" id="ae2-RL-Im2"/>
                             <constraint firstItem="gCv-Ys-CxO" firstAttribute="bottom" secondItem="jhi-sv-Xhz" secondAttribute="bottom" id="dJg-Iq-4Xr"/>
+                            <constraint firstItem="KxY-eb-IB8" firstAttribute="top" secondItem="EaR-yx-xkg" secondAttribute="bottom" constant="50" id="gSb-nI-F6t"/>
                             <constraint firstItem="EaR-yx-xkg" firstAttribute="top" secondItem="jhi-sv-Xhz" secondAttribute="top" constant="53" id="kh4-gy-T6J"/>
                             <constraint firstItem="gb5-dM-yAx" firstAttribute="top" secondItem="jhi-sv-Xhz" secondAttribute="top" id="lxf-ag-hsj"/>
+                            <constraint firstItem="0dV-ug-Hlq" firstAttribute="leading" secondItem="jhi-sv-Xhz" secondAttribute="leading" constant="42" id="qaY-Qw-TxB"/>
+                            <constraint firstItem="KxY-eb-IB8" firstAttribute="leading" secondItem="jhi-sv-Xhz" secondAttribute="leading" constant="42" id="zrp-zC-llt"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="채팅" selectedImage="chat" id="xk2-C7-Ufl"/>
@@ -350,6 +412,8 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bookStoreCollectionView" destination="GKa-HF-h0q" id="60S-ba-hQP"/>
+                        <outlet property="infoView" destination="gCv-Ys-CxO" id="X5s-fW-TNf"/>
+                        <outlet property="newBookCollectionView" destination="KxY-eb-IB8" id="htM-aJ-7kc"/>
                         <outlet property="newChatBtn" destination="EzV-2Z-PbR" id="rHV-EU-MUr"/>
                     </connections>
                 </viewController>
@@ -419,8 +483,8 @@
                             <constraint firstItem="Elx-Mm-Mum" firstAttribute="top" secondItem="d7V-WD-wr0" secondAttribute="bottom" constant="7.6699999999999999" id="z4m-Rp-k19"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="채팅" image="chat" selectedImage="chat_active" id="BgU-nP-d50"/>
                     <navigationItem key="navigationItem" title="채팅" id="3Dw-Nd-JZC"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bookFilteringBtn" destination="mBz-et-Whv" id="VGT-t0-iLx"/>
                         <outlet property="chatDataScrollView" destination="d7V-WD-wr0" id="5Ht-Wg-6hD"/>
@@ -437,16 +501,19 @@
     <resources>
         <image name="chat" width="25" height="24"/>
         <image name="chatImg" width="166.66667175292969" height="166.66667175292969"/>
-        <image name="chat_active" width="25" height="24"/>
         <image name="chat_send" width="36" height="36"/>
         <image name="filter" width="26" height="22"/>
         <image name="history" width="25" height="25"/>
         <image name="history_active" width="25" height="25"/>
         <image name="home" width="30" height="25"/>
         <image name="home_acitve" width="30" height="25"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="mypage" width="25" height="25"/>
         <image name="mypage_active" width="25" height="25"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <namedColor name="Gray1">
+            <color red="0.85100001096725464" green="0.85100001096725464" blue="0.85100001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Primary">
             <color red="0.62699997425079346" green="0.77600002288818359" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -13,11 +13,11 @@ class HistoryVC: UIViewController {
     @IBOutlet weak var chatDataTableView: UITableView!
     
     var chatDataArray = [
-        ChatData(id: 1, date: "2023-08-30", title: "시간이 게으른 게스트 하우스"),
+        ChatData(id: 1, date: "2023-09-20", title: "일본 애니메이션 저작권"),
         ChatData(id: 2, date: "2023-08-30", title: "사랑, 인생, 명언"),
         ChatData(id: 3, date: "2023-08-30", title: "시간이 게으른 게스트 하우스"),
-        ChatData(id: 4, date: "2023-08-16", title: "시간이 게으른 게스트 하우스"),
-        ChatData(id: 5, date: "2023-08-16", title: "시간이 게으른 게스트 하우스")
+        ChatData(id: 4, date: "2023-08-16", title: "우주로 나아가"),
+        ChatData(id: 5, date: "2023-08-16", title: "공연예술")
     ]
     
     var groupedData: [String: [ChatData]] = [:]
@@ -129,7 +129,7 @@ extension HistoryVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70 // 각 UITableViewCell의 높이를 설정
+        return 60 // 각 UITableViewCell의 높이를 설정
     }
 }
 

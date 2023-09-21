@@ -23,5 +23,18 @@ extension BookStoreModel{
     ]
 }
 
+struct newBookInfo {
+    let id: Int
+    let imgName: UIImage
+}
 
+extension newBookInfo{
+    static let list: [newBookInfo] = [
+        newBookInfo(id: 1, imgName: UIImage(named: "book1")!),
+        newBookInfo(id: 2, imgName: UIImage(named: "book2")!),
+        newBookInfo(id: 3, imgName: UIImage(named: "book3")!),
+        newBookInfo(id: 4, imgName: UIImage(named: "book4")!),
+        newBookInfo(id: 5, imgName: UIImage(named: "book5")!)
+    ]
+}
 
